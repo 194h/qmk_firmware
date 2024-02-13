@@ -52,6 +52,8 @@ enum custom_keycodes {
     SS_CBRS = SAFE_RANGE,
     SS_BRCS,
     SS_POPC,
+    SS_QTS,
+    SS_DQTS,
     NEW_SAFE_RANGE
 };
 
@@ -70,6 +72,16 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         case SS_POPC:
             if (record->event.pressed) {
                 SEND_STRING("()" SS_TAP(X_LEFT));
+            }
+            return false;
+        case SS_QTS:
+            if (record->event.pressed) {
+                SEND_STRING("''" SS_TAP(X_LEFT));
+            }
+            return false;
+        case SS_DQTS:
+            if (record->event.pressed) {
+                SEND_STRING("""" SS_TAP(X_LEFT));
             }
             return false;
     }
@@ -95,7 +107,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L3] = LAYOUT(
-	XXXXXXX,       XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,                                  XXXXXXX,      SS_CBRS,      SS_POPC,      SS_BRCS,      XXXXXXX,      XXXXXXX,
+	XXXXXXX,       SS_QTS,       SS_DQTS,      XXXXXXX,      SS_BRCS,      XXXXXXX,                                  XXXXXXX,      XXXXXXX,      SS_CBRS,      XXXXXXX,      SS_POPC,      XXXXXXX,
 	XXXXXXX,       NO_QUOT,      NO_DQT,       NO_AT,        XXXXXXX,      NO_TILD,                                  NO_QUES,      NO_EXLM,      NO_PIPE,      NO_AND,       NO_HASH,      NO_DQT,
 	_______,       NO_ASTR,      NO_LBRC,      NO_PO,        NO_PC,        NO_RBRC,                                  NO_HAT,       NO_RCBR,      NO_LCBR,      NO_DLR,       NO_SLSH,      NO_QUOT,
 	XXXXXXX,       NO_SECT,      NO_BSLS,      NO_PERC,      NO_ACUT,      NO_GRV,                                   NO_EN,        NO_EM,        NO_GT,        NO_LT,        NO_EQL,       XXXXXXX,
@@ -105,7 +117,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L4] = LAYOUT(
 	KC_ESC,        KC_BTN1,      KC_BTN2,      KC_BTN3,      XXXXXXX,      XXXXXXX,                                  XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,
 	XXXXXXX,       XXXXXXX,      KC_WBAK,      XXXXXXX,      KC_WREF,      KC_WFWD,                                  KC_HOME,      KC_PGDN,      KC_PGUP,      KC_END,       XXXXXXX,      XXXXXXX,
-	_______,       KC_APP,       KC_MS_L,      KC_MS_D,      KC_MS_U,      KC_MS_R,                                  KC_LEFT,      KC_DOWN,      KC_UP,        KC_RIGHT,     XXXXXXX,      XXXXXXX,
+	_______,       KC_APP,       KC_MS_L,      KC_MS_U,      KC_MS_D,      KC_MS_R,                                  KC_LEFT,      KC_DOWN,      KC_UP,        KC_RIGHT,     XXXXXXX,      XXXXXXX,
     XXXXXXX,       XXXXXXX,      KC_WH_L,      KC_WH_U,      KC_WH_D,      KC_WH_R,                                  XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,
     OSM_LCTL,      _______,      _______,      _______,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      OSM_RCTL
   ),
