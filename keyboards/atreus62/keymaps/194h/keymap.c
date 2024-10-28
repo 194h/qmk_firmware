@@ -81,7 +81,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         case SS_DQTS:
             if (record->event.pressed) {
-                SEND_STRING("""" SS_TAP(X_LEFT));
+                SEND_STRING(SS_LSFT("22") SS_TAP(X_LEFT));
             }
             return false;
     }
@@ -110,8 +110,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	XXXXXXX,       SS_QTS,       SS_DQTS,      XXXXXXX,      SS_BRCS,      XXXXXXX,                                  XXXXXXX,      XXXXXXX,      SS_CBRS,      XXXXXXX,      SS_POPC,      XXXXXXX,
 	XXXXXXX,       NO_QUOT,      NO_DQT,       NO_AT,        XXXXXXX,      NO_TILD,                                  NO_QUES,      NO_EXLM,      NO_PIPE,      NO_AND,       NO_HASH,      NO_DQT,
 	_______,       NO_ASTR,      NO_LBRC,      NO_PO,        NO_PC,        NO_RBRC,                                  NO_HAT,       NO_RCBR,      NO_LCBR,      NO_DLR,       NO_SLSH,      NO_QUOT,
-	XXXXXXX,       NO_SECT,      NO_BSLS,      NO_PERC,      NO_ACUT,      NO_GRV,                                   NO_EN,        NO_EM,        NO_GT,        NO_LT,        NO_EQL,       XXXXXXX,
-	XXXXXXX,       _______,      _______,      _______,      XXXXXXX,      XXXXXXX,      NO_UNDS,      XXXXXXX,      XXXXXXX,      XXXXXXX,      _______,      _______,      _______,      XXXXXXX
+	XXXXXXX,       NO_SECT,      NO_BSLS,      NO_PERC,      NO_ACUT,      NO_GRV,                                   NO_EN,        NO_EM,        NO_GT,        NO_LT,        NO_UNDS,      XXXXXXX,
+	XXXXXXX,       _______,      _______,      _______,      XXXXXXX,      XXXXXXX,      NO_UNDS,      XXXXXXX,      XXXXXXX,      XXXXXXX,      _______,      NO_EQL,       _______,      XXXXXXX
   ),
 
   [L4] = LAYOUT(
