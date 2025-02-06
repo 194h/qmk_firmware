@@ -91,8 +91,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L5] = LAYOUT(
 	XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,                                  XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,
 	XXXXXXX,      XXXXXXX,      XXXXXXX,      KC_ESC,       XXXXXXX,      XXXXXXX,                                  XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,
-	_______,      KC_1,         KC_2,         KC_3,         KC_4,         KC_0,                                     KC_0,         KC_1,         KC_2,         KC_3,         KC_4,         XXXXXXX,
-        XXXXXXX,      KC_5,         KC_6,         KC_7,         KC_8,         KC_9,                                     XXXXXXX,      KC_5,         KC_6,         KC_7,         KC_8,         KC_9,
+	_______,      KC_4,         KC_3,         KC_2,         KC_1,         KC_0,                                     KC_0,         KC_1,         KC_2,         KC_3,         KC_4,         XXXXXXX,
+        KC_9,         KC_8,         KC_7,         KC_6,         KC_5,         XXXXXXX,                                  XXXXXXX,      KC_5,         KC_6,         KC_7,         KC_8,         KC_9,
         XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX
   ),
 
