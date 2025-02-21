@@ -16,12 +16,8 @@
 #define A_COMM LALT_T(KC_COMM)
 //RCTL on hold, / on tap
 #define C_SLSH RCTL_T(KC_SLSH)
-//RCTL on hold, ESC on tap
-#define C_ESC RCTL_T(KC_ESC)
-//RGUI on hold, - on tap
-#define G_MIN LGUI_T(KC_MINS)
-//LGUI on hold, Tab on tap
-#define G_TAB LGUI_T(KC_TAB)
+//RGUI on hold, Enter on tap
+#define G_ENT RGUI_T(KC_ENT)
 //LCTL on hold, Z on tap
 #define C_Z LCTL_T(KC_Z)
 
@@ -63,7 +59,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        O_LSFT,     C_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M,  A_COMM,  KC_DOT,  C_SLSH,  O_RSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LGUI,  OSL_L2,  KC_SPC,     L3_ESC,  OSL_L2,  KC_ENT
+                                          KC_LGUI,  OSL_L2,  KC_SPC,     L3_ESC,  OSL_L2,   G_ENT
                                       //`--------------------------'  `--------------------------'
 
   ),
