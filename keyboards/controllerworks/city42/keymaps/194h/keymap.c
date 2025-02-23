@@ -48,6 +48,10 @@
 #define L3_X LT(L3, KC_X)
 //L3 on hold, . on tap
 #define L3_DOT LT(L3, KC_DOT)
+//L2 on hold, V on tap
+#define L2_V LT(L2, KC_V)
+//L2 on hold, M on tap
+#define L2_M LT(L2, KC_M)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L1] = LAYOUT_split_3x6_3(
@@ -57,7 +61,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_BSPC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_COLN, RA_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       O_LSFT,     C_Z,    L3_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M,  A_COMM,  L3_DOT,  C_SLSH,  O_RSFT,
+       O_LSFT,     C_Z,    L3_X,    KC_C,    L2_V,    KC_B,                         KC_N,    L2_M,  A_COMM,  L3_DOT,  C_SLSH,  O_RSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                            L3_ESC,  OSL_L2,  KC_SPC,     KC_ENT,  OSL_L2,   MO_L3
                                       //`--------------------------'  `--------------------------'
