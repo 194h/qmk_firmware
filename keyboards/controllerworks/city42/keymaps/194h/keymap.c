@@ -90,13 +90,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L4] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      QK_BOOT, XXXXXXX, XXXXXXX, MS_WHLU, XXXXXXX, XXXXXXX,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, XXXXXXX,
+        TO_L1, XXXXXXX, XXXXXXX, MS_WHLU, XXXXXXX, XXXXXXX,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, MS_BTN3, MS_BTN2, MS_BTN1,                        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      XXXXXXX, XXXXXXX, XXXXXXX, MS_WHLD, XXXXXXX, XXXXXXX,                       KC_F11,  KC_F12, KC_LALT, XXXXXXX, KC_RCTL, XXXXXXX,
+      XXXXXXX, QK_BOOT, XXXXXXX, MS_WHLD, XXXXXXX, XXXXXXX,                       KC_F11,  KC_F12, KC_LALT, XXXXXXX, KC_RCTL, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, _______, MS_BTN1,    XXXXXXX, _______,   TO_L1
+                                          XXXXXXX, _______, MS_BTN1,     KC_ENT, _______,   TO_L1
                                       //`--------------------------'  `--------------------------'
   )
 };
@@ -110,8 +110,8 @@ layer_state_t layer_state_set_user(layer_state_t state) {
         case 0:  // L1 - No lights
             rgblight_disable();
             break;
-        case 1:  // L2 - Green
-            rgblight_sethsv_noeeprom(43, 255, 255);  // HSV Yellow
+        case 1:  // L2 - White
+            rgblight_sethsv_noeeprom(0, 0, 255);  // HSV White
             break;
         case 2:  // L3 - Blue
             rgblight_sethsv_noeeprom(170, 255, 255); // HSV Blue
