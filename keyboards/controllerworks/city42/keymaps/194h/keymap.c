@@ -18,12 +18,10 @@
 #define C_SLSH RCTL_T(KC_SLSH)
 //LCTL on hold, Z on tap
 #define C_Z LCTL_T(KC_Z)
-//RGUI on hold, Minus on tap
-#define G_MINS RGUI_T(KC_MINS)
 //LGUI on hold, Tab on tap
 #define G_TAB LGUI_T(KC_TAB)
-//LGUI on hold, Equal on tap
-#define G_EQL LGUI_T(KC_EQL)
+//RGUI on hold, Equal on tap
+#define G_EQL RGUI_T(KC_EQL)
 
 //Layers
 #define L1 0
@@ -59,24 +57,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L1] = LAYOUT_split_3x6_3(
 
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        G_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,   G_MINS,
+        G_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,    G_EQL,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      KC_BSPC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_COLN, RA_QUOT,
+      KC_BSPC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L,  OSL_L2, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
        O_LSFT,     C_Z,    L3_X,    KC_C,    L2_V,    KC_B,                         KC_N,    L2_M,  A_COMM,  L3_DOT,  C_SLSH,  O_RSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           L4_ESC, KC_MINS,  KC_SPC,     KC_ENT,  KC_EQL,  KC_PLUS
+                                           L4_ESC, KC_MINS,  KC_SPC,     KC_ENT,  OSL_L3, KC_COLN
                                       //`--------------------------'  `--------------------------'
 
   ),
 
   [L2] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-      _______, XXXXXXX, XXXXXXX,   KC_AT, KC_HASH, KC_TILD,                      KC_QUES, KC_EXLM, KC_PIPE,  KC_AND, XXXXXXX, _______,
+      _______, XXXXXXX, XXXXXXX,   KC_AT, KC_HASH, KC_TILD,                      KC_QUES, KC_EXLM, KC_PIPE,  KC_AND, KC_PLUS, _______,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       _______, KC_ASTR, KC_LBRC,   KC_PO,   KC_PC, KC_RBRC,                       KC_HAT, KC_RCBR, KC_LCBR,  KC_DLR, KC_SCLN,  KC_DQT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, XXXXXXX, KC_BSLS, KC_PERC, KC_UNDS,  KC_GRV,                      XXXXXXX, XXXXXXX,   KC_LT,   KC_GT, XXXXXXX, _______,
+      _______, XXXXXXX, KC_BSLS, KC_PERC, XXXXXXX,  KC_GRV,                      XXXXXXX, XXXXXXX,   KC_LT,   KC_GT, XXXXXXX, _______,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
                                           _______, _______, KC_UNDS,    XXXXXXX, _______, _______
                                       //`--------------------------'  `--------------------------'
