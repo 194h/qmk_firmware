@@ -44,14 +44,12 @@
 #define TO_L4 TO(L4)
 //L4 on hold, Esc on tap
 #define L4_ESC LT(L4, KC_ESC)
-//L3 on hold, X on tap
-#define L3_X LT(L3, KC_X)
-//L3 on hold, . on tap
-#define L3_DOT LT(L3, KC_DOT)
-//L2 on hold, V on tap
-#define L2_V LT(L2, KC_V)
-//L2 on hold, M on tap
-#define L2_M LT(L2, KC_M)
+//L2 on hold, X on tap
+#define L2_X LT(L2, KC_X)
+//L2 on hold, . on tap
+#define L2_DOT LT(L2, KC_DOT)
+//L3 on hold, Minus on tap
+#define L3_MINS LT(L3, KC_MINS)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L1] = LAYOUT_split_3x6_3(
@@ -61,9 +59,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_BSPC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L,  OSL_L2, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       O_LSFT,     C_Z,    L3_X,    KC_C,    L2_V,    KC_B,                         KC_N,    L2_M,  A_COMM,  L3_DOT,  C_SLSH,  O_RSFT,
+       O_LSFT,     C_Z,    L2_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M,  A_COMM,  L2_DOT,  C_SLSH,  O_RSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                           L4_ESC, KC_MINS,  KC_SPC,     KC_ENT,  OSL_L3, KC_COLN
+                                           L4_ESC, L3_MINS,  KC_SPC,     KC_ENT,  OSL_L3, KC_COLN
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -94,13 +92,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L4] = LAYOUT_split_3x6_3(
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-        TO_L1, XXXXXXX, XXXXXXX, MS_WHLU, XXXXXXX, XXXXXXX,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, XXXXXXX,
+        TO_L1,   TO_L4, XXXXXXX, MS_WHLU, XXXXXXX, XXXXXXX,                        KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, XXXXXXX, XXXXXXX, MS_BTN3, MS_BTN2, MS_BTN1,                        KC_F1,   KC_F2,   KC_F3,   KC_F4,   KC_F5, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       XXXXXXX, QK_BOOT, XXXXXXX, MS_WHLD, XXXXXXX, XXXXXXX,                       KC_F11,  KC_F12, KC_LALT, XXXXXXX, KC_RCTL, XXXXXXX,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          XXXXXXX, _______, MS_BTN1,     KC_ENT, _______,   TO_L1
+                                          XXXXXXX, XXXXXXX, MS_BTN1,     KC_ENT, _______,   TO_L1
                                       //`--------------------------'  `--------------------------'
   )
 };
