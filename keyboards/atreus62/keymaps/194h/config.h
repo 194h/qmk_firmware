@@ -5,5 +5,6 @@
 #define TAPPING_TERM 300 //default
 #define TAPPING_TERM_PER_KEY
 #define TAP_DANCE_DOUBLE_TAP_TERM 250
+#define MK_COMBINED
 //#define LEADER_TIMEOUT 1000
 //#define TAPPING_TOGGLE 3
