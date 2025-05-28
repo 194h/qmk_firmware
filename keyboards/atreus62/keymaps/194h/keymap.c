@@ -64,7 +64,58 @@ enum custom_keycodes {
     SS_POPC,
     SS_QTS,
     SS_DQTS,
+
+    BIT_1,
+    BIT_2,
+    BIT_3,
+    BIT_4,
+
+    BIT_5,
+    BIT_6,
+    BIT_7,
+    BIT_8,
+
+    BIT_9,
+    BIT_10,
+    BIT_11,
+    BIT_12,
+
+    BIT_C,
+
     NEW_SAFE_RANGE
+};
+
+static bool bit1 = false;
+static bool bit2 = false;
+static bool bit3 = false;
+static bool bit4 = false;
+static bool bit5 = false;
+static bool bit6 = false;
+static bool bit7 = false;
+static bool bit8 = false;
+static bool bit9 = false;
+static bool bit10 = false;
+static bool bit11 = false;
+static bool bit12 = false;
+
+static void reset_bitflips(void) {
+    bit1 = bit2 = bit3 = bit4 = bit5 = bit6 = bit7 = bit8 = bit9 = bit10 = bit11 = bit12 = false;
+};
+
+static const uint16_t bitflip_keycodes[10] = {
+    KC_0, KC_1, KC_2, KC_3, KC_4, KC_5, KC_6, KC_7, KC_8, KC_9
+};
+
+static void send_bitflip_number(void) {
+    uint16_t val = (bit12 << 11) |(bit11 << 10) | (bit10 << 9) | (bit9 << 8) |
+                   (bit8 << 7) | (bit7 << 6) | (bit6 << 5) | (bit5 << 4) |
+                   (bit4 << 3) | (bit3 << 2) | (bit2 << 1) | bit1;
+
+    char num_str[6]; // max "4095" + null terminator
+    snprintf(num_str, sizeof(num_str), "%u", val);
+    send_string(num_str);
+
+    reset_bitflips();
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
@@ -94,18 +145,64 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 SEND_STRING(SS_LSFT("''") SS_TAP(X_LEFT));
             }
             return false;
+
+        // Bit inputs
+        case BIT_1:
+            if (record->event.pressed) bit1 = !bit1;
+            return false;
+        case BIT_2:
+            if (record->event.pressed) bit2 = !bit2;
+            return false;
+        case BIT_3:
+            if (record->event.pressed) bit3 = !bit3;
+            return false;
+        case BIT_4:
+            if (record->event.pressed) bit4 = !bit4;
+            return false;
+
+        case BIT_5:
+            if (record->event.pressed) bit5 = !bit5;
+            return false;
+        case BIT_6:
+            if (record->event.pressed) bit6 = !bit6;
+            return false;
+        case BIT_7:
+            if (record->event.pressed) bit7 = !bit7;
+            return false;
+        case BIT_8:
+            if (record->event.pressed) bit8 = !bit8;
+            return false;
+
+        case BIT_9:
+            if (record->event.pressed) bit9 = !bit9;
+            return false;
+        case BIT_10:
+            if (record->event.pressed) bit10 = !bit10;
+            return false;
+        case BIT_11:
+            if (record->event.pressed) bit11 = !bit11;
+            return false;
+        case BIT_12:
+            if (record->event.pressed) bit12 = !bit12;
+            return false;
+
+        case BIT_C:
+            if (record->event.pressed) {
+                send_bitflip_number();
+            }
+            return false;
     }
     return true;
-}
+};
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L1] = LAYOUT(
-	MS_BTN1,      MS_BTN3,      MS_WHLL,      MS_WHLU,      MS_WHLD,      MS_WHLR,                                  MS_LEFT,      MS_DOWN,      MS_UP,        MS_RGHT,      XXXXXXX,      MS_BTN2,
+	MS_BTN1,      BIT_4,        BIT_3,        BIT_2,        BIT_1,        BIT_C,                                    MS_LEFT,      MS_DOWN,      MS_UP,        MS_RGHT,      MS_BTN3,      MS_BTN2,
 	G_TAB,        KC_Q,         KC_W,         KC_E,         KC_R,         KC_T,                                     KC_Y,         KC_U,         KC_I,         KC_O,         KC_P,         G_EQL,
 	KC_BSPC,      KC_A,         KC_S,         KC_D,         KC_F,         KC_G,                                     KC_H,         KC_J,         KC_K,         KC_L,         KC_MINS,      KC_QUOT,
 	O_LSFT,       C_Z,          KC_X,         KC_C,         KC_V,         KC_B,                                     KC_N,         KC_M,         A_COMM,       KC_DOT,       C_SLSH,       O_RSFT,
-	XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      O_L4,         O_L3,         KC_SPC,       KC_ENT,       O_L3,         O_L4,         XXXXXXX,      MS_ACL2,      MS_ACL1,      MS_ACL0
+	KC_ESC,       XXXXXXX,      XXXXXXX,      XXXXXXX,      O_L4,         O_L3,         KC_SPC,       KC_ENT,       O_L3,         O_L4,         XXXXXXX,      MS_ACL2,      MS_ACL1,      MS_ACL0
   ),
 
   [L2] = LAYOUT(
@@ -117,7 +214,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L3] = LAYOUT(
-	XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,                                  XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,
+	XXXXXXX,      BIT_8,        BIT_7,        BIT_6,        BIT_5,        BIT_C,                                    XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,
     _______,       SS_QTS,      SS_DQTS,      KC_AT,        KC_HASH,      KC_TILD,                                  KC_QUES,      KC_EXLM,      KC_PIPE,      KC_AND,       KC_PLUS,      KC_EQL,
     _______,      KC_ASTR,      KC_LBRC,      KC_PO,        KC_PC,        KC_RBRC,                                  KC_HAT,       KC_RCBR,      KC_LCBR,      KC_DLR,       KC_MINS,      KC_DQT,
     _______,      XXXXXXX,      KC_BSLS,      KC_PERC,      XXXXXXX,      KC_GRV,                                   NO_EN,        NO_EM,        KC_LT,        KC_GT,        XXXXXXX,      _______,
@@ -125,7 +222,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L4] = LAYOUT(
-	MS_BTN4,      MS_BTN5,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,                                  MS_WHLL,      MS_WHLD,      MS_WHLU,      MS_WHLR,      XXXXXXX,      MS_BTN3,
+	MS_BTN4,      BIT_12,       BIT_11,       BIT_10,       BIT_9,        BIT_C,                                    MS_WHLL,      MS_WHLD,      MS_WHLU,      MS_WHLR,      MS_BTN3,      MS_BTN5,
 	_______,      KC_0,         KC_9,         KC_8,         KC_7,         KC_6,                                     KC_HOME,      KC_PGDN,      KC_PGUP,      KC_END,       KC_F12,       KC_RGUI,
 	_______,      KC_5,         KC_4,         KC_3,         KC_2,         KC_1,                                     KC_LEFT,      KC_DOWN,      KC_UP,        KC_RIGHT,     KC_F11,       XXXXXXX,
 	KC_LSFT,      KC_LCTL,      KC_DEL,       KC_ESC,       XXXXXXX,      XXXXXXX,                                  XXXXXXX,      XXXXXXX,      KC_COMM,      KC_DOT,       KC_SLSH,      KC_RSFT,
