@@ -27,9 +27,7 @@
 //ALT on hold, , on tap
 #define A_COMM LALT_T(KC_COMM)
 //RCTL on hold, / on tap
-#define C_SLSH RCTL_T(KC_SLSH)
-//LCTL on hold, Z on tap
-#define C_Z LCTL_T(KC_Z)
+#define C_MINS RCTL_T(KC_MINS)
 //LGUI on hold, Tab on tap
 #define G_TAB LGUI_T(KC_TAB)
 //RGUI on hold, Equal on tap
@@ -121,11 +119,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L1] = LAYOUT(
-	MS_BTN1,      KC_COPY,      KC_PASTE,     KC_EQL,       KC_PLUS,      KC_MINS,                                  MS_LEFT,      MS_DOWN,      MS_UP,        MS_RGHT,      MS_BTN3,      MS_BTN2,
-	G_TAB,        KC_Q,         KC_W,         KC_E,         KC_R,         KC_T,                                     KC_Y,         KC_U,         KC_I,         KC_O,         KC_P,         G_EQL,
-	KC_BSPC,      KC_A,         KC_S,         KC_D,         KC_F,         KC_G,                                     KC_H,         KC_J,         KC_K,         KC_L,         KC_RCTL,      KC_QUOT,
-	O_LSFT,       KC_Z,         KC_X,         KC_C,         KC_V,         KC_B,                                     KC_N,         KC_M,         A_COMM,       KC_DOT,       KC_SLSH,      O_RSFT,
-	KC_ESC,       KC_LCTL,      KC_WSCH,      KC_WFAV,      O_L4,         O_L3,         KC_SPC,       KC_ENT,       O_L3,         O_L4,         KC_CALC,      KC_PSCR,      KC_RCTL,      KC_COLN
+	MS_BTN1,      KC_COPY,      KC_PASTE,     KC_WFAV,      KC_PSCR,      KC_CALC,                                  MS_LEFT,      MS_DOWN,      MS_UP,        MS_RGHT,      MS_BTN3,      MS_BTN2,
+	G_TAB,        KC_Q,         KC_W,         KC_E,         KC_R,         KC_T,                                     KC_Y,         KC_U,         KC_I,         KC_O,         KC_P,         KC_RGUI,
+	KC_BSPC,      KC_A,         KC_S,         KC_D,         KC_F,         KC_G,                                     KC_H,         KC_J,         KC_K,         KC_L,         KC_MINS,      KC_QUOT,
+	O_LSFT,       KC_Z,         KC_X,         KC_C,         KC_V,         KC_B,                                     KC_N,         KC_M,         A_COMM,       KC_DOT,       KC_RCTL,      O_RSFT,
+	KC_ESC,       KC_LCTL,      KC_DEL,       KC_LALT,      O_L4,         O_L3,         KC_SPC,       KC_ENT,       O_L3,         O_L4,         KC_PLUS,      KC_EQL,       KC_SCLN,      KC_COLN
   ),
 
   [L2] = LAYOUT(
@@ -137,15 +135,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L3] = LAYOUT(
-	XXXXXXX,      XXXXXXX,      SS_SPC4,      _______,      _______,      _______,                                  XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,
-    _______,      SS_QTS,       SS_DQTS,      KC_AT,        KC_HASH,      KC_TILD,                                  KC_QUES,      KC_EXLM,      KC_PIPE,      KC_AND,       KC_PLUS,      KC_EQL,
-    _______,      KC_ASTR,      KC_LBRC,      KC_PO,        KC_PC,        KC_RBRC,                                  KC_HAT,       KC_RCBR,      KC_LCBR,      KC_DLR,       KC_MINS,      KC_DQT,
+	XXXXXXX,      XXXXXXX,      SS_SPC4,      XXXXXXX,      XXXXXXX,      XXXXXXX,                                  XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,
+    _______,      SS_QTS,       SS_DQTS,      KC_AT,        KC_HASH,      KC_TILD,                                  KC_QUES,      KC_EXLM,      KC_PIPE,      KC_AND,       XXXXXXX,      XXXXXXX,
+    _______,      KC_ASTR,      KC_LBRC,      KC_PO,        KC_PC,        KC_RBRC,                                  KC_HAT,       KC_RCBR,      KC_LCBR,      KC_DLR,       XXXXXXX,      KC_DQT,
     _______,      XXXXXXX,      KC_BSLS,      KC_PERC,      SS_CMNT,      KC_GRV,                                   NO_EN,        NO_EM,        KC_LT,        KC_GT,        _______,      _______,
-	XXXXXXX,      XXXXXXX,      SS_BRCS,      SS_POPC,      XXXXXXX,      XXXXXXX,      KC_UNDS,      SS_ENTV,      XXXXXXX,      XXXXXXX,      SS_CBRS,      XXXXXXX,      XXXXXXX,      KC_SCLN
+	XXXXXXX,      XXXXXXX,      SS_BRCS,      SS_POPC,      XXXXXXX,      XXXXXXX,      KC_UNDS,      SS_ENTV,      XXXXXXX,      XXXXXXX,      SS_CBRS,      XXXXXXX,      XXXXXXX,      KC_SLSH
   ),
 
   [L4] = LAYOUT(
-	MS_BTN4,      XXXXXXX,      XXXXXXX,      _______,      _______,      _______,                                  MS_WHLL,      MS_WHLD,      MS_WHLU,      MS_WHLR,      MS_BTN3,      MS_BTN5,
+	MS_BTN4,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,                                  MS_WHLL,      MS_WHLD,      MS_WHLU,      MS_WHLR,      MS_BTN3,      MS_BTN5,
 	_______,      KC_0,         KC_9,         KC_8,         KC_7,         KC_6,                                     KC_HOME,      KC_PGDN,      KC_PGUP,      KC_END,       XXXXXXX,      KC_RGUI,
 	_______,      KC_5,         KC_4,         KC_3,         KC_2,         KC_1,                                     KC_LEFT,      KC_DOWN,      KC_UP,        KC_RIGHT,     XXXXXXX,      XXXXXXX,
 	KC_LSFT,      XXXXXXX,      KC_DEL,       KC_ESC,       XXXXXXX,      XXXXXXX,                                  XXXXXXX,      XXXXXXX,      KC_COMM,      KC_DOT,       _______,      KC_RSFT,
