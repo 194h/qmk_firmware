@@ -119,7 +119,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L1] = LAYOUT(
-	MS_BTN1,      KC_COPY,      KC_PASTE,     KC_WFAV,      KC_PSCR,      KC_CALC,                                  MS_LEFT,      MS_DOWN,      MS_UP,        MS_RGHT,      MS_BTN3,      MS_BTN2,
+	MS_BTN1,      KC_COPY,      KC_PASTE,     KC_FIND,      SS_DQTS,      SS_QTS,                                   MS_LEFT,      MS_DOWN,      MS_UP,        MS_RGHT,      MS_BTN3,      MS_BTN2,
 	G_TAB,        KC_Q,         KC_W,         KC_E,         KC_R,         KC_T,                                     KC_Y,         KC_U,         KC_I,         KC_O,         KC_P,         KC_RGUI,
 	KC_BSPC,      KC_A,         KC_S,         KC_D,         KC_F,         KC_G,                                     KC_H,         KC_J,         KC_K,         KC_L,         KC_MINS,      KC_QUOT,
 	O_LSFT,       KC_Z,         KC_X,         KC_C,         KC_V,         KC_B,                                     KC_N,         KC_M,         A_COMM,       KC_DOT,       KC_RCTL,      O_RSFT,
@@ -137,7 +137,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L3] = LAYOUT(
 	XXXXXXX,      XXXXXXX,      SS_SPC4,      XXXXXXX,      XXXXXXX,      XXXXXXX,                                  XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,
     _______,      SS_QTS,       SS_DQTS,      KC_AT,        KC_HASH,      KC_TILD,                                  KC_QUES,      KC_EXLM,      KC_PIPE,      KC_AND,       XXXXXXX,      XXXXXXX,
-    _______,      KC_ASTR,      KC_LBRC,      KC_PO,        KC_PC,        KC_RBRC,                                  KC_HAT,       KC_RCBR,      KC_LCBR,      KC_DLR,       XXXXXXX,      KC_DQT,
+    _______,      KC_ASTR,      KC_LBRC,      KC_PO,        KC_PC,        KC_RBRC,                                  KC_HAT,       KC_RCBR,      KC_LCBR,      KC_DLR,       KC_SLSH,      KC_DQT,
     _______,      XXXXXXX,      KC_BSLS,      KC_PERC,      SS_CMNT,      KC_GRV,                                   NO_EN,        NO_EM,        KC_LT,        KC_GT,        _______,      _______,
 	XXXXXXX,      XXXXXXX,      SS_BRCS,      SS_POPC,      XXXXXXX,      XXXXXXX,      KC_UNDS,      SS_ENTV,      XXXXXXX,      XXXXXXX,      SS_CBRS,      XXXXXXX,      XXXXXXX,      KC_SLSH
   ),
@@ -153,7 +153,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L5] = LAYOUT(
     XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,                                  XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,
     TO_L1,        TO_L2,        XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,                                  KC_F6,        KC_F7,        KC_F8,        KC_F9,        KC_F10,       XXXXXXX,
-    XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,                                  KC_F1,        KC_F2,        KC_F3,        KC_F4,        KC_F5,        XXXXXXX,
+    XXXXXXX,      XXXXXXX,      KC_PSCR,      XXXXXXX,      KC_WFAV,      KC_CALC,                                  KC_F1,        KC_F2,        KC_F3,        KC_F4,        KC_F5,        XXXXXXX,
     XXXXXXX,      QK_BOOT,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,                                  KC_F11,       KC_F12,       KC_LALT,      XXXXXXX,      KC_RCTL,      XXXXXXX,
     XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX
   )
