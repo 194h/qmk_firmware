@@ -2,7 +2,7 @@
 #define FORCE_NKRO
 #define ENABLE_COMPILE_KEYCODE
 #define ONESHOT_TIMEOUT 2500
-#define TAPPING_TERM 100 //default
+#define TAPPING_TERM 120 //default
 #define TAPPING_TERM_PER_KEY
 #define TAP_DANCE_DOUBLE_TAP_TERM 250
 #define MK_COMBINED
