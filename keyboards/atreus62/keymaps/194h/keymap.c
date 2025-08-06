@@ -35,9 +35,6 @@
 //RGUI on hold, Equal on tap
 #define G_EQL RGUI_T(KC_EQL)
 
-//HOLD Shift and press Tab
-#define S_TAB S(KC_TAB)
-
 //Layers
 #define L1 0
 #define L2 1
@@ -126,11 +123,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L1] = LAYOUT(
-	MS_BTN1,      MS_BTN3,      KC_CUT,       KC_COPY,      KC_PASTE,     MS_BTN3,                                  MS_LEFT,      MS_DOWN,      MS_UP,        MS_RGHT,      MS_BTN3,      MS_BTN2,
+	MS_BTN1,      MS_BTN3,      KC_CUT,       KC_COPY,      KC_PASTE,     KC_TAB,                                   MS_LEFT,      MS_DOWN,      MS_UP,        MS_RGHT,      MS_BTN3,      MS_BTN2,
 	KC_LGUI,      KC_Q,         KC_W,         KC_E,         KC_R,         KC_T,                                     KC_Y,         KC_U,         KC_I,         KC_O,         KC_P,         KC_RGUI,
 	KC_BSPC,      KC_A,         KC_S,         KC_D,         KC_F,         KC_G,                                     KC_H,         KC_J,         KC_K,         KC_L,         KC_MINS,      KC_QUOT,
 	O_LSFT,       KC_Z,         KC_X,         KC_C,         KC_V,         KC_B,                                     KC_N,         KC_M,         A_COMM,       KC_DOT,       C_SLSH,       O_RSFT,
-	C_ESC,        KC_LALT,      KC_LGUI,      LM_G_L5,      O_L4,         O_L3,         KC_SPC,       KC_ENT,       O_L3,         O_L4,         LM_G_L5,      KC_TAB,       KC_RALT,      KC_COLN
+	C_ESC,        KC_LALT,      KC_RALT,      MO_L5,        O_L4,         O_L3,         KC_SPC,       KC_ENT,       O_L3,         O_L4,         MO_L5,        KC_EQL,       KC_SCLN,      KC_COLN
   ),
 
   [L2] = LAYOUT(
@@ -144,16 +141,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L3] = LAYOUT(
 	XXXXXXX,      XXXXXXX,      SS_SPC4,      XXXXXXX,      XXXXXXX,      XXXXXXX,                                  XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,
     _______,      SS_QTS,       SS_DQTS,      KC_AT,        KC_HASH,      KC_TILD,                                  KC_QUES,      KC_EXLM,      KC_PIPE,      KC_AND,       KC_PLUS,      XXXXXXX,
-    _______,      KC_ASTR,      KC_LBRC,      KC_PO,        KC_PC,        KC_RBRC,                                  KC_HAT,       KC_RCBR,      KC_LCBR,      KC_DLR,       KC_MINS,      KC_DQT,
-    _______,      KC_EQL,       KC_BSLS,      KC_PERC,      SS_CMNT,      KC_GRV,                                   NO_EN,        NO_EM,        KC_LT,        KC_GT,        KC_SLSH,      _______,
-	XXXXXXX,      XXXXXXX,      SS_BRCS,      SS_POPC,      XXXXXXX,      XXXXXXX,      KC_UNDS,      SS_ENTV,      XXXXXXX,      XXXXXXX,      SS_CBRS,      XXXXXXX,      XXXXXXX,      KC_SCLN
+    _______,      KC_ASTR,      KC_LBRC,      KC_PO,        KC_PC,        KC_RBRC,                                  KC_HAT,       KC_RCBR,      KC_LCBR,      KC_DLR,       KC_TAB,       KC_DQT,
+    _______,      XXXXXXX,      KC_BSLS,      KC_PERC,      SS_CMNT,      KC_GRV,                                   NO_EN,        NO_EM,        KC_LT,        KC_GT,        KC_SLSH,      _______,
+	XXXXXXX,      XXXXXXX,      SS_BRCS,      SS_POPC,      XXXXXXX,      XXXXXXX,      KC_UNDS,      SS_ENTV,      XXXXXXX,      XXXXXXX,      SS_CBRS,      XXXXXXX,      XXXXXXX,      KC_COLN
   ),
 
   [L4] = LAYOUT(
 	MS_BTN4,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,                                  MS_WHLL,      MS_WHLD,      MS_WHLU,      MS_WHLR,      XXXXXXX,      MS_BTN5,
-	_______,      KC_0,         KC_9,         KC_8,         KC_7,         KC_6,                                     KC_HOME,      KC_PGDN,      KC_PGUP,      KC_END,       S_TAB,        KC_RGUI,
+	_______,      KC_0,         KC_9,         KC_8,         KC_7,         KC_6,                                     KC_HOME,      KC_PGDN,      KC_PGUP,      KC_END,       XXXXXXX,      KC_RGUI,
 	_______,      KC_5,         KC_4,         KC_3,         KC_2,         KC_1,                                     KC_LEFT,      KC_DOWN,      KC_UP,        KC_RIGHT,     XXXXXXX,      XXXXXXX,
-	KC_LSFT,      XXXXXXX,      KC_DEL,       KC_ESC,       XXXXXXX,      XXXXXXX,                                  KC_TAB,       XXXXXXX,      KC_COMM,      KC_DOT,       _______,      KC_RSFT,
+	KC_LSFT,      XXXXXXX,      KC_DEL,       KC_ESC,       XXXXXXX,      XXXXXXX,                                  XXXXXXX,      XXXXXXX,      KC_COMM,      KC_DOT,       _______,      KC_RSFT,
 	XXXXXXX,      KC_LCTL,      KC_RALT,      KC_LALT,      MO_L5,        KC_0,         KC_1,         XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      MS_ACL2,      MS_ACL1,      MS_ACL0
   ),
 
@@ -161,7 +158,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,                                  XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,
     TO_L1,        KC_F10,       KC_F9,        KC_F8,        KC_F7,        KC_F6,                                    KC_F16,       KC_F17,       KC_F18,       KC_F19,       KC_F20,       TO_L2,
     XXXXXXX,      KC_F5,        KC_F4,        KC_F3,        KC_F2,        KC_F1,                                    KC_F11,       KC_F12,       KC_F13,       KC_F14,       KC_F15,       XXXXXXX,
-    XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      KC_WFAV,                                  XXXXXXX,      XXXXXXX,      KC_LALT,      XXXXXXX,      KC_RCTL,      XXXXXXX,
+    KC_LSFT,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      KC_WFAV,                                  XXXXXXX,      XXXXXXX,      KC_LALT,      XXXXXXX,      KC_RCTL,      KC_RSFT,
     XXXXXXX,      QK_BOOT,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      KC_F1,        KC_F11,       XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX
   )
 
