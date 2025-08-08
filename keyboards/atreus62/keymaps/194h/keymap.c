@@ -120,19 +120,23 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 };
 
-const uint16_t PROGMEM test_combo1[] = {KC_U, KC_I, COMBO_END};
-const uint16_t PROGMEM test_combo2[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM test_combo1[] = {KC_TAB, KC_EQL, COMBO_END};
+const uint16_t PROGMEM test_combo2[] = {KC_BSPC, KC_QUOT, COMBO_END};
 const uint16_t PROGMEM test_combo3[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM test_combo4[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM test_combo5[] = {KC_C, KC_M, COMBO_END};
 const uint16_t PROGMEM test_combo6[] = {KC_N, KC_M, COMBO_END};
+const uint16_t PROGMEM test_combo7[] = {KC_S, KC_D, COMBO_END};
+const uint16_t PROGMEM test_combo8[] = {KC_K, KC_L, COMBO_END};
 combo_t key_combos[] = {
     COMBO(test_combo1, LM_G_L5),
-    COMBO(test_combo2, LM_G_L5),
+    COMBO(test_combo2, KC_LGUI),
     COMBO(test_combo3, KC_LGUI),
     COMBO(test_combo4, KC_RGUI),
     COMBO(test_combo5, KC_COLN),
     COMBO(test_combo6, KC_ESC),
+    COMBO(test_combo7, LM_G_L5),
+    COMBO(test_combo8, LM_G_L5),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
