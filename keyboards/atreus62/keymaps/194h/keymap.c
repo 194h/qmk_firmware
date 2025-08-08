@@ -120,14 +120,29 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 };
 
+const uint16_t PROGMEM test_combo1[] = {KC_U, KC_I, COMBO_END};
+const uint16_t PROGMEM test_combo2[] = {KC_E, KC_R, COMBO_END};
+const uint16_t PROGMEM test_combo3[] = {KC_D, KC_F, COMBO_END};
+const uint16_t PROGMEM test_combo4[] = {KC_J, KC_K, COMBO_END};
+const uint16_t PROGMEM test_combo5[] = {KC_C, KC_M, COMBO_END};
+const uint16_t PROGMEM test_combo6[] = {KC_N, KC_M, COMBO_END};
+combo_t key_combos[] = {
+    COMBO(test_combo1, LM_G_L5),
+    COMBO(test_combo2, LM_G_L5),
+    COMBO(test_combo3, KC_LGUI),
+    COMBO(test_combo4, KC_RGUI),
+    COMBO(test_combo5, KC_COLN),
+    COMBO(test_combo6, KC_ESC),
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L1] = LAYOUT(
 	MS_BTN1,      MS_BTN3,      KC_CUT,       KC_COPY,      KC_PASTE,     KC_TAB,                                   MS_LEFT,      MS_DOWN,      MS_UP,        MS_RGHT,      MS_BTN3,      MS_BTN2,
-	KC_LGUI,      KC_Q,         KC_W,         KC_E,         KC_R,         KC_T,                                     KC_Y,         KC_U,         KC_I,         KC_O,         KC_P,         KC_RGUI,
+	KC_TAB,       KC_Q,         KC_W,         KC_E,         KC_R,         KC_T,                                     KC_Y,         KC_U,         KC_I,         KC_O,         KC_P,         KC_EQL,
 	KC_BSPC,      KC_A,         KC_S,         KC_D,         KC_F,         KC_G,                                     KC_H,         KC_J,         KC_K,         KC_L,         KC_MINS,      KC_QUOT,
 	O_LSFT,       KC_Z,         KC_X,         KC_C,         KC_V,         KC_B,                                     KC_N,         KC_M,         A_COMM,       KC_DOT,       C_SLSH,       O_RSFT,
-	C_ESC,        KC_LALT,      KC_RALT,      MO_L5,        O_L4,         O_L3,         KC_SPC,       KC_ENT,       O_L3,         O_L4,         MO_L5,        KC_EQL,       KC_SCLN,      KC_COLN
+	C_ESC,        KC_LALT,      KC_RALT,      KC_LGUI,      O_L4,         O_L3,         KC_SPC,       KC_ENT,       O_L3,         O_L4,         KC_RGUI,      KC_RALT,      KC_SCLN,      KC_COLN
   ),
 
   [L2] = LAYOUT(
