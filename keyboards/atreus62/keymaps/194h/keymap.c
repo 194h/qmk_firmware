@@ -39,22 +39,13 @@
 #define L1 0
 #define L2 1
 #define L3 2
-#define L4 3
-#define L5 4
 
 // Momentary switch to layer
+#define MO_L2 MO(L2)
 #define MO_L3 MO(L3)
-#define MO_L4 MO(L4)
-#define MO_L5 MO(L5)
-// Momentary switch to layer with modifier active
-#define LM_G_L5 LM(L5, MOD_LGUI)
 // Momentary switch to layer - One Shot Layer
+#define O_L2 OSL(L2)
 #define O_L3 OSL(L3)
-#define O_L4 OSL(L4)
-#define O_L5 OSL(L5)
-//Toggle layers
-#define TO_L1 TO(L1)
-#define TO_L2 TO(L2)
 //L3 on hold, X on tap
 #define L3_X LT(L3, KC_X)
 //L3 on hold, . on tap
@@ -127,39 +118,23 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KC_LGUI,      KC_Q,         KC_W,         KC_E,         KC_R,         KC_T,                                     KC_Y,         KC_U,         KC_I,         KC_O,         KC_P,         KC_RGUI,
 	KC_BSPC,      KC_A,         KC_S,         KC_D,         KC_F,         KC_G,                                     KC_H,         KC_J,         KC_K,         KC_L,         KC_MINS,      KC_QUOT,
 	O_LSFT,       KC_Z,         KC_X,         KC_C,         KC_V,         KC_B,                                     KC_N,         KC_M,         KC_COMM,      KC_DOT,       KC_SLSH,      O_RSFT,
-	KC_ESC,       KC_LCTL,      KC_RALT,      KC_LALT,      O_L4,         O_L3,         KC_SPC,       KC_ENT,       O_L3,         O_L4,         KC_LALT,      KC_EQL,       KC_RCTL,      KC_COLN
+	KC_ESC,       KC_LCTL,      KC_RALT,      KC_LALT,      O_L3,         O_L2,         KC_SPC,       KC_ENT,       O_L2,         O_L3,         KC_LALT,      KC_EQL,       KC_RCTL,      KC_COLN
   ),
 
   [L2] = LAYOUT(
-	_______,      _______,      _______,      _______,      _______,      _______,                                  _______,      _______,      _______,      _______,      _______,      _______,
-	_______,      _______,      _______,      _______,      _______,      _______,                                  _______,      _______,      _______,      _______,      _______,        NO_AA,
-	_______,      _______,      _______,      _______,      _______,      _______,                                  _______,      _______,      _______,      _______,        NO_OE,        NO_AE,
-	_______,      _______,      _______,      _______,      _______,      _______,                                  _______,      _______,      _______,      _______,      _______,      _______,
-	_______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______,      _______
-  ),
-
-  [L3] = LAYOUT(
-	KC_TAB,       KC_6,         KC_4,         KC_2,         KC_0,         KC_8,                                     KC_9,         KC_1,         KC_3,         KC_5,         KC_7,         KC_RCTL,
+	XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,                                  XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,
     KC_TAB,       SS_QTS,       SS_DQTS,      KC_AT,        KC_HASH,      KC_TILD,                                  KC_QUES,      KC_EXLM,      KC_PIPE,      KC_AND,       KC_PLUS,      NO_AA,
     _______,      KC_ASTR,      KC_LBRC,      KC_PO,        KC_PC,        KC_RBRC,                                  KC_HAT,       KC_RCBR,      KC_LCBR,      KC_DLR,       NO_OE,        NO_AE,
     _______,      XXXXXXX,      KC_BSLS,      KC_PERC,      SS_CMNT,      KC_GRV,                                   NO_EN,        NO_EM,        KC_LT,        KC_GT,        KC_TAB,       _______,
-	XXXXXXX,      XXXXXXX,      SS_BRCS,      SS_POPC,      XXXXXXX,      XXXXXXX,      KC_UNDS,      SS_ENTV,      XXXXXXX,      XXXXXXX,      _______,      XXXXXXX,      _______,      KC_SCLN
+	XXXXXXX,      XXXXXXX,      SS_BRCS,      SS_POPC,      XXXXXXX,      XXXXXXX,      KC_UNDS,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      _______,      KC_SCLN
   ),
 
-  [L4] = LAYOUT(
+  [L3] = LAYOUT(
 	MS_BTN4,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,                                  MS_WHLL,      MS_WHLD,      MS_WHLU,      MS_WHLR,      XXXXXXX,      MS_BTN5,
 	_______,      KC_0,         KC_9,         KC_8,         KC_7,         KC_6,                                     KC_HOME,      KC_PGDN,      KC_PGUP,      KC_END,       XXXXXXX,      KC_RGUI,
 	_______,      KC_5,         KC_4,         KC_3,         KC_2,         KC_1,                                     KC_LEFT,      KC_DOWN,      KC_UP,        KC_RIGHT,     XXXXXXX,      XXXXXXX,
-	KC_LSFT,      XXXXXXX,      KC_DEL,       KC_ESC,       XXXXXXX,      XXXXXXX,                                  XXXXXXX,      XXXXXXX,      KC_COMM,      KC_DOT,       _______,      KC_RSFT,
-	XXXXXXX,      KC_LCTL,      KC_RALT,      KC_LALT,      MO_L5,        KC_0,         KC_1,         XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX
-  ),
-
-  [L5] = LAYOUT(
-    QK_BOOT,      XXXXXXX,      XXXXXXX,      XXXXXXX,      TO_L2,        TO_L1,                                    XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,
-    KC_LGUI,      KC_F10,       KC_F9,        KC_F8,        KC_F7,        KC_F6,                                    KC_F16,       KC_F17,       KC_F18,       KC_F19,       KC_F20,       KC_RGUI,
-    XXXXXXX,      KC_F5,        KC_F4,        KC_F3,        KC_F2,        KC_F1,                                    KC_F11,       KC_F12,       KC_F13,       KC_F14,       KC_F15,       XXXXXXX,
-    KC_LSFT,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      KC_WFAV,                                  XXXXXXX,      XXXXXXX,      KC_LALT,      XXXXXXX,      KC_RCTL,      KC_RSFT,
-    XXXXXXX,      KC_LCTL,      XXXXXXX,      KC_LALT,      XXXXXXX,      XXXXXXX,      KC_F1,        KC_F11,       XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX
+	KC_LSFT,      KC_F10,       KC_F9,        KC_F8,        KC_F7,        KC_F6,                                    KC_F11,       KC_F12,       KC_COMM,      KC_DOT,       _______,      KC_RSFT,
+	QK_BOOT,      KC_F5,        KC_F4,        KC_F3,        KC_F2,        KC_F1,        KC_1,         XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX,      XXXXXXX
   )
 
 };
