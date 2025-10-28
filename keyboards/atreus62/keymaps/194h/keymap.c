@@ -63,10 +63,29 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     return true;
 };
 
+const uint16_t PROGMEM combo5[] = {KC_4, KC_1, COMBO_END};
+const uint16_t PROGMEM combo5_1[] = {KC_3, KC_2, COMBO_END};
+const uint16_t PROGMEM combo6[] = {KC_4, KC_2, COMBO_END};
+const uint16_t PROGMEM combo6_1[] = {KC_3, KC_2, KC_1, COMBO_END};
+const uint16_t PROGMEM combo7[] = {KC_4, KC_3, COMBO_END};
+const uint16_t PROGMEM combo7_1[] = {KC_4, KC_2, KC_1, COMBO_END};
+const uint16_t PROGMEM combo8[] = {KC_4, KC_3, KC_1, COMBO_END};
+const uint16_t PROGMEM combo9[] = {KC_4, KC_3, KC_2, COMBO_END};
+combo_t key_combos[] = {
+    COMBO(combo5, KC_5),
+    COMBO(combo5_1, KC_5),
+    COMBO(combo6, KC_6),
+    COMBO(combo6_1, KC_6),
+    COMBO(combo7, KC_7),
+    COMBO(combo7_1, KC_7),
+    COMBO(combo8, KC_8),
+    COMBO(combo9, KC_9),
+};
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L1] = LAYOUT(
-	MS_BTN1,      KC_5,         KC_4,         KC_3,         KC_2,         KC_1,                                     MS_LEFT,      MS_DOWN,      MS_UP,        MS_RGHT,      MS_BTN3,      MS_BTN2,
+	MS_BTN1,      KC_0,         KC_4,         KC_3,         KC_2,         KC_1,                                     MS_LEFT,      MS_DOWN,      MS_UP,        MS_RGHT,      MS_BTN3,      MS_BTN2,
 	KC_TAB,       KC_Q,         KC_W,         KC_E,         KC_R,         KC_T,                                     KC_Y,         KC_U,         KC_I,         KC_O,         KC_P,         KC_SCLN,
 	KC_BSPC,      KC_A,         KC_S,         KC_D,         KC_F,         KC_G,                                     KC_H,         KC_J,         KC_K,         KC_L,         KC_MINS,      KC_QUOT,
 	O_LSFT,       KC_Z,         KC_X,         KC_C,         KC_V,         KC_B,                                     KC_N,         KC_M,         KC_COMM,      KC_DOT,       KC_SLSH,      O_RSFT,
@@ -74,7 +93,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [L2] = LAYOUT(
-	MS_BTN4,      KC_0,         KC_9,         KC_8,         KC_7,         KC_6,                                     MS_WHLL,      MS_WHLD,      MS_WHLU,      MS_WHLR,      MS_ACL0,      MS_BTN5,
+	MS_BTN4,      KC_5,         KC_9,         KC_8,         KC_7,         KC_6,                                     MS_WHLL,      MS_WHLD,      MS_WHLU,      MS_WHLR,      MS_ACL0,      MS_BTN5,
     _______,      SS_QTS,       SS_DQTS,      KC_AT,        KC_HASH,      KC_TILD,                                  KC_QUES,      KC_EXLM,      KC_PIPE,      KC_AND,       KC_PLUS,      WEUR_AA,
     _______,      KC_ASTR,      KC_LBRC,      KC_PO,        KC_PC,        KC_RBRC,                                  KC_LEFT,      KC_DOWN,      KC_UP,        KC_RGHT,      WEUR_OE,      WEUR_AE,
     _______,      QK_BOOT,      KC_BSLS,      KC_PERC,      SS_CMNT,      KC_GRV,                                   KC_HAT,       KC_RCBR,      KC_LCBR,      KC_DLR,       _______,      _______,
