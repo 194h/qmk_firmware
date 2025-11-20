@@ -71,6 +71,7 @@ const uint16_t PROGMEM combo7[] = {KC_4, KC_3, COMBO_END};
 const uint16_t PROGMEM combo7_1[] = {KC_4, KC_2, KC_1, COMBO_END};
 const uint16_t PROGMEM combo8[] = {KC_4, KC_3, KC_1, COMBO_END};
 const uint16_t PROGMEM combo9[] = {KC_4, KC_3, KC_2, COMBO_END};
+const uint16_t PROGMEM combo_boot[] = {KC_4, KC_3, KC_2, KC_1, COMBO_END};
 combo_t key_combos[] = {
     COMBO(combo5, KC_5),
     COMBO(combo5_1, KC_5),
@@ -80,6 +81,7 @@ combo_t key_combos[] = {
     COMBO(combo7_1, KC_7),
     COMBO(combo8, KC_8),
     COMBO(combo9, KC_9),
+    COMBO(combo_boot, QK_BOOT),
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -96,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	MS_BTN4,      KC_5,         KC_9,         KC_8,         KC_7,         KC_6,                                     MS_WHLL,      MS_WHLD,      MS_WHLU,      MS_WHLR,      MS_ACL0,      MS_BTN5,
     _______,      SS_QTS,       SS_DQTS,      KC_AT,        KC_HASH,      KC_TILD,                                  KC_QUES,      KC_EXLM,      KC_PIPE,      KC_AND,       KC_PLUS,      WEUR_AA,
     _______,      KC_ASTR,      KC_LBRC,      KC_PO,        KC_PC,        KC_RBRC,                                  KC_LEFT,      KC_DOWN,      KC_UP,        KC_RGHT,      WEUR_OE,      WEUR_AE,
-    _______,      QK_BOOT,      KC_BSLS,      KC_PERC,      SS_CMNT,      KC_GRV,                                   KC_HAT,       KC_RCBR,      KC_LCBR,      KC_DLR,       _______,      _______,
+    _______,      XXXXXXX,      KC_BSLS,      KC_PERC,      SS_CMNT,      KC_GRV,                                   KC_HAT,       KC_RCBR,      KC_LCBR,      KC_DLR,       _______,      _______,
 	_______,      _______,      KC_CUT,       KC_COPY,      KC_PSTE,      XXXXXXX,      KC_UNDS,      XXXXXXX,      KC_HOME,      KC_PGDN,      KC_PGUP,      KC_END,       _______,      KC_SCLN
   )
 
