@@ -32,8 +32,9 @@
 #define C_Z LCTL_T(KC_Z)
 //LGUI on hold, Tab on tap
 #define G_TAB LGUI_T(KC_TAB)
-//RGUI on hold, Equal on tap
-#define G_EQL RGUI_T(KC_EQL)
+
+//RGUI on hold, Enter on tap
+#define G_ENT RGUI_T(KC_ENT)
 
 //Layers
 #define L1 0
@@ -53,10 +54,11 @@
 #define TO_L1 TO(L1)
 #define TO_L2 TO(L2)
 #define TO_L3 TO(L3)
-//L3 on hold, X on tap
-#define L3_X LT(L3, KC_X)
 //L3 on hold, . on tap
 #define L3_DOT LT(L3, KC_DOT)
+
+//L3 on hold, Space on tap
+#define L3_SPC LT(L3, KC_SPACE)
 
 // Shift + Colon → Semicolon
 const key_override_t shift_colon_to_semicolon =
@@ -102,13 +104,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [L1] = LAYOUT_split_3x6_3(
 
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
-       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_RGUI,
+       KC_TAB,    KC_Q,    KC_W,    KC_E,    KC_R,    KC_T,                         KC_Y,    KC_U,    KC_I,    KC_O,   KC_P,  KC_RALT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_BSPC,    KC_A,    KC_S,    KC_D,    KC_F,    KC_G,                         KC_H,    KC_J,    KC_K,    KC_L, KC_MINS, KC_QUOT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-       O_LSFT,    KC_Z,    L3_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  L3_DOT, KC_SLSH,  O_RSFT,
+       O_LSFT,    KC_Z,    KC_X,    KC_C,    KC_V,    KC_B,                         KC_N,    KC_M, KC_COMM,  KC_DOT, KC_SLSH,  O_RSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
-                                          KC_LALT,  OSL_L2,  KC_SPC,     KC_ENT,  OSL_L2, KC_LCTL
+                                          KC_LALT,  OSL_L2,  L3_SPC,      G_ENT,  OSL_L2, KC_LCTL
                                       //`--------------------------'  `--------------------------'
 
   ),
@@ -129,7 +131,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //,-----------------------------------------------------.                    ,-----------------------------------------------------.
       _______,    KC_0,    KC_4,    KC_3,    KC_2,    KC_1,                      MS_WHLL, MS_WHLD, MS_WHLU, MS_WHLR, XXXXXXX, KC_RGUI,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
-      _______, MS_BTN4, MS_BTN1, MS_BTN3, MS_BTN2, MS_BTN5,                      MS_LEFT, MS_DOWN,   MS_UP, MS_RGHT, XXXXXXX, KC_RALT,
+      KC_LGUI, MS_BTN4, MS_BTN1, MS_BTN3, MS_BTN2, MS_BTN5,                      MS_LEFT, MS_DOWN,   MS_UP, MS_RGHT, XXXXXXX, KC_RALT,
   //|--------+--------+--------+--------+--------+--------|                    |--------+--------+--------+--------+--------+--------|
       KC_LSFT,  KC_F10,   KC_F4,   KC_F3,   KC_F2,   KC_F1,                      KC_HOME, KC_PGDN, KC_PGUP,  KC_END, _______, KC_RSFT,
   //|--------+--------+--------+--------+--------+--------+--------|  |--------+--------+--------+--------+--------+--------+--------|
