@@ -1,6 +1,8 @@
 #include QMK_KEYBOARD_H
 
 // us altgr-weur specific aliases
+// Acute
+#define WEUR_AC RALT(KC_QUOT)
 // Endash
 #define WEUR_EN RALT(KC_MINS)
 // Emdash
@@ -35,33 +37,83 @@
 
 enum custom_keycodes {
     SS_QTS = SAFE_RANGE,
-    SS_DQTS,
     SS_CMNT,
+    SS_PO,
+    SS_BRC,
 
     NEW_SAFE_RANGE
 };
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
-        case SS_QTS:
-            if (record->event.pressed) {
-                SEND_STRING("''" SS_TAP(X_LEFT));
-            }
-            return false;
-        case SS_DQTS:
-            if (record->event.pressed) {
-                SEND_STRING(SS_LSFT("''") SS_TAP(X_LEFT));
-            }
-            return false;
         case SS_CMNT:
             if (record->event.pressed) {
                 SEND_STRING("\e^i#\e");
+            }
+            return false;
+        case SS_QTS:
+            if (record->event.pressed) {
+                // Gather current mods, including one-shot/weak
+                uint8_t mods = get_mods() | get_weak_mods() | get_oneshot_mods();
+                bool shifted = (mods & MOD_MASK_SHIFT);
+                // Clear shift everywhere so it cannot leak into the sendstring
+                uint8_t real_mods = get_mods();
+                uint8_t weak_mods = get_weak_mods();
+                uint8_t osm_mods  = get_oneshot_mods();
+                del_mods(MOD_MASK_SHIFT);
+                del_weak_mods(MOD_MASK_SHIFT);
+                set_oneshot_mods(osm_mods & ~MOD_MASK_SHIFT);
+                if (shifted) {
+                    SEND_STRING("\"\"" SS_TAP(X_LEFT)); // "" and cursor inside
+                } else {
+                    SEND_STRING("''"   SS_TAP(X_LEFT)); // '' and cursor inside
+                }
+                // Restore mods
+                set_mods(real_mods);
+                set_weak_mods(weak_mods);
+                set_oneshot_mods(osm_mods & ~MOD_MASK_SHIFT);
+
+            }
+            return false;
+        case SS_PO:
+            if (record->event.pressed) {
+                SEND_STRING("()" SS_TAP(X_LEFT));
+            }
+            return false;
+        case SS_BRC:
+            if (record->event.pressed) {
+                SEND_STRING("[]" SS_TAP(X_LEFT));
             }
             return false;
 
     }
     return true;
 };
+
+// Shift + Colon → Semicolon
+const key_override_t shift_colon_to_semicolon =
+    ko_make_basic(MOD_MASK_SHIFT, KC_COLN, KC_SCLN);
+
+// Shift + Slash → Equal
+const key_override_t shift_slash_to_equal =
+    ko_make_basic(MOD_MASK_SHIFT, KC_SLSH, KC_EQL);
+
+// Shift + "=" should still be "="
+const key_override_t shift_equal_to_equal =
+    ko_make_basic(MOD_MASK_SHIFT, KC_EQL, KC_EQL);
+
+// Shift + Minus → Plus
+const key_override_t shift_minus_to_plus =
+    ko_make_basic(MOD_MASK_SHIFT, KC_MINS, KC_PLUS);
+
+// Register all overrides
+const key_override_t *key_overrides[] = {
+    &shift_colon_to_semicolon,
+    &shift_slash_to_equal,
+    &shift_equal_to_equal,
+    &shift_minus_to_plus,
+};
+
 
 const uint16_t PROGMEM combo5[] = {KC_4, KC_1, COMBO_END};
 const uint16_t PROGMEM combo5_1[] = {KC_3, KC_2, COMBO_END};
@@ -88,7 +140,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L1] = LAYOUT(
 	MS_BTN1,      KC_0,         KC_4,         KC_3,         KC_2,         KC_1,                                     MS_LEFT,      MS_DOWN,      MS_UP,        MS_RGHT,      MS_BTN3,      MS_BTN2,
-	KC_TAB,       KC_Q,         KC_W,         KC_E,         KC_R,         KC_T,                                     KC_Y,         KC_U,         KC_I,         KC_O,         KC_P,         KC_SCLN,
+	KC_TAB,       KC_Q,         KC_W,         KC_E,         KC_R,         KC_T,                                     KC_Y,         KC_U,         KC_I,         KC_O,         KC_P,         SS_QTS,
 	KC_BSPC,      KC_A,         KC_S,         KC_D,         KC_F,         KC_G,                                     KC_H,         KC_J,         KC_K,         KC_L,         KC_MINS,      KC_QUOT,
 	O_LSFT,       KC_Z,         KC_X,         KC_C,         KC_V,         KC_B,                                     KC_N,         KC_M,         KC_COMM,      KC_DOT,       KC_SLSH,      O_RSFT,
 	KC_ESC,       KC_LCTL,      KC_RALT,      KC_LALT,      O_LGUI,       O_L2,         KC_SPC,       KC_ENT,       O_L2,         O_RGUI,       KC_LALT,      KC_EQL,       KC_RCTL,      KC_COLN
@@ -96,9 +148,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [L2] = LAYOUT(
 	MS_BTN4,      KC_F10,       KC_F4,        KC_F3,        KC_F2,        KC_F1,                                    MS_WHLL,      MS_WHLD,      MS_WHLU,      MS_WHLR,      MS_ACL0,      MS_BTN5,
-	_______,      SS_QTS,       SS_DQTS,      KC_AT,        KC_HASH,      KC_TILD,                                  KC_QUES,      KC_EXLM,      KC_PIPE,      KC_AND,       KC_PLUS,      WEUR_AA,
+	_______,      KC_GRV,       WEUR_AC,      KC_AT,        KC_HASH,      KC_TILD,                                  KC_QUES,      KC_EXLM,      KC_PIPE,      KC_AND,       XXXXXXX,      WEUR_AA,
 	_______,      KC_ASTR,      KC_LBRC,      KC_PO,        KC_PC,        KC_RBRC,                                  KC_LEFT,      KC_DOWN,      KC_UP,        KC_RGHT,      WEUR_OE,      WEUR_AE,
-	_______,      XXXXXXX,      KC_BSLS,      KC_PERC,      SS_CMNT,      KC_GRV,                                   KC_HAT,       KC_RCBR,      KC_LCBR,      KC_DLR,       _______,      _______,
+	_______,      KC_BSLS,      KC_DEL,       KC_PERC,      SS_PO,        SS_BRC,                                   KC_HAT,       KC_RCBR,      KC_LCBR,      KC_DLR,       _______,      _______,
 	_______,      _______,      KC_CUT,       KC_COPY,      KC_PSTE,      XXXXXXX,      KC_UNDS,      XXXXXXX,      KC_HOME,      KC_PGDN,      KC_PGUP,      KC_END,       _______,      KC_SCLN
   )
 
