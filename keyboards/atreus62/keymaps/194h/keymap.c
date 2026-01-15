@@ -124,6 +124,16 @@ const uint16_t PROGMEM combo7_1[] = {KC_4, KC_2, KC_1, COMBO_END};
 const uint16_t PROGMEM combo8[] = {KC_4, KC_3, KC_1, COMBO_END};
 const uint16_t PROGMEM combo9[] = {KC_4, KC_3, KC_2, COMBO_END};
 const uint16_t PROGMEM combo_boot[] = {KC_4, KC_3, KC_2, KC_1, COMBO_END};
+const uint16_t PROGMEM combof5[] = {KC_F4, KC_F1, COMBO_END};
+const uint16_t PROGMEM combof5_1[] = {KC_F3, KC_F2, COMBO_END};
+const uint16_t PROGMEM combof6[] = {KC_F4, KC_F2, COMBO_END};
+const uint16_t PROGMEM combof6_1[] = {KC_F3, KC_F2, KC_F1, COMBO_END};
+const uint16_t PROGMEM combof7[] = {KC_F4, KC_F3, COMBO_END};
+const uint16_t PROGMEM combof7_1[] = {KC_F4, KC_F2, KC_F1, COMBO_END};
+const uint16_t PROGMEM combof8[] = {KC_F4, KC_F3, KC_F1, COMBO_END};
+const uint16_t PROGMEM combof9[] = {KC_F4, KC_F3, KC_F2, COMBO_END};
+const uint16_t PROGMEM combof11[] = {KC_F10, KC_F1, COMBO_END};
+const uint16_t PROGMEM combof12[] = {KC_F10, KC_F2, COMBO_END};
 combo_t key_combos[] = {
     COMBO(combo5, KC_5),
     COMBO(combo5_1, KC_5),
@@ -133,6 +143,16 @@ combo_t key_combos[] = {
     COMBO(combo7_1, KC_7),
     COMBO(combo8, KC_8),
     COMBO(combo9, KC_9),
+    COMBO(combof5, KC_F5),
+    COMBO(combof5_1, KC_F5),
+    COMBO(combof6, KC_F6),
+    COMBO(combof6_1, KC_F6),
+    COMBO(combof7, KC_F7),
+    COMBO(combof7_1, KC_F7),
+    COMBO(combof8, KC_F8),
+    COMBO(combof9, KC_F9),
+    COMBO(combof11, KC_F11),
+    COMBO(combof12, KC_F12),
     COMBO(combo_boot, QK_BOOT),
 };
 
